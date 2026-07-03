@@ -49,7 +49,7 @@ resource "aws_security_group" "my_security_group" {
     }
 
     tags = {
-        Name = automate-sg
+        Name = "automate-sg"
     }
 }
 # ec2 Instance
