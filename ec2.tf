@@ -11,7 +11,7 @@ resource "aws_default_vpc" "default" {
 resource "aws_security_group" "my_security_group" {
     name = "automate-sg"
     description = "this will add a TF generated security group"
-    vpc_id = aws_default_vpc.default.id  #interpolation
+    vpc_id = "aws_default_vpc.default.id"  #interpolation
 
      
  #inbound rules
@@ -54,8 +54,8 @@ resource "aws_security_group" "my_security_group" {
 }
 # ec2 Instance
 resource "aws_instance" "my_instance" {
-    key_name = aws_key_pair.My_key.key_name
-    security_groups = aws_security_group.my_security_group.automate-sg
+    key_name = "aws_key_pair.My_key.key_name"
+    security_groups = "aws_security_group.my_security_group.automate-sg"
     instance_type = "t2.micro"
     ami = "ami-01a00762f46d584a1" #ubuntu
 
