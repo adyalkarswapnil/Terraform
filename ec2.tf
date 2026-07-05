@@ -54,7 +54,7 @@ resource "aws_security_group" "my_security_group" {
 # ec2 Instance
 resource "aws_instance" "my_instance" {
   ami                    = "ami-01a00762f46d584a1"
-  instance_type          = "t3.micro"
+  instance_type          = "t3.small"
   key_name               = aws_key_pair.My_key.key_name
 
   vpc_security_group_ids = [
