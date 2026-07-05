@@ -53,16 +53,20 @@ resource "aws_security_group" "my_security_group" {
 }
 # ec2 Instance
 resource "aws_instance" "my_instance" {
-    key_name = aws_key_pair.My_key.key_name
-    vpc_security_group_ids = ["aws_security_group.my_security_group.vpc_id"]
-    instance_type = "t2.micro"
-    ami = "ami-01a00762f46d584a1" #ubuntu
+  ami                    = "ami-01a00762f46d584a1"
+  instance_type          = "t2.micro"
+  key_name               = aws_key_pair.My_key.key_name
 
-    root_block_device {
-        volume_size = 15
-        volume_type = "gp3"
-    }
-    tags = {
-       Name = "TWS-Junoon-automate"
-    }
+  vpc_security_group_ids = [
+    aws_security_group.my_security_group.id
+  ]
+
+  root_block_device {
+    volume_size = 15
+    volume_type = "gp3"
+  }
+
+  tags = {
+    Name = "TWS-Junoon-automate"
+  }
 }
