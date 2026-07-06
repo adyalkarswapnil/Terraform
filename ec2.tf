@@ -53,7 +53,7 @@ resource "aws_security_group" "my_security_group" {
 }
 # ec2 Instance
 resource "aws_instance" "my_instance" {
-  ami                    = "var.ec2_ami_id"
+  ami                    = var.ec2_ami_id
   instance_type          = "var.ec2_instance_type"
   key_name               = aws_key_pair.My_key.key_name
 
