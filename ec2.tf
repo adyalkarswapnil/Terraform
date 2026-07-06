@@ -53,8 +53,8 @@ resource "aws_security_group" "my_security_group" {
 }
 # ec2 Instance
 resource "aws_instance" "my_instance" {
-  ami                    = "ami-01a00762f46d584a1"
-  instance_type          = "t3.micro"
+  ami                    = "var.ec2_ami_id"
+  instance_type          = "var.ec2_instance_type"
   key_name               = aws_key_pair.My_key.key_name
 
   vpc_security_group_ids = [
@@ -62,7 +62,7 @@ resource "aws_instance" "my_instance" {
   ]
 
   root_block_device {
-    volume_size = 15
+    volume_size = var.ec2_root_storage_size
     volume_type = "gp3"
   }
 
