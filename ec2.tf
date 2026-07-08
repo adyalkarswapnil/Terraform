@@ -69,6 +69,6 @@ resource "aws_instance" "my_instance" {
   }
 
   tags = {
-    Name = "TWS-Junoon-automate"
+    Name = "TWS-Junun-automate"
   }
 }
