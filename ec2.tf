@@ -1,7 +1,7 @@
 # Key Pair
 resource "aws_key_pair" "My_key" {
   key_name   = "terra-key-ec2"
-  public_key = file("${path.module}/terra-key-ec2.pub")
+  public_key = file("terra-key-ec2.pub")
 }
 
 # Default VPC
