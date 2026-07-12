@@ -3,7 +3,7 @@ variable "ec2_instance_type" {
     default = "t3.small"
 }
 
-variable "ec2_root_storage_size"{
+variable "ec2_root_storage_size" {
     type = number
     default = 25
 }
