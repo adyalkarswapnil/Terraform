@@ -1,6 +1,7 @@
 variable "ec2_instance_type" {
-    type = string
-    default = "t3.small"
+  description = "EC2 instance type"
+  type        = string
+  default     = "t3.small"
 }
 
 variable "ec2_root_storage_size"{
