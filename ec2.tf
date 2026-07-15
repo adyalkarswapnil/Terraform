@@ -57,8 +57,8 @@ resource "aws_security_group" "my_security_group" {
 # EC2 Instance
 resource "aws_instance" "my_instance" {
   for_each = tomap({
-    TWS-Junoon-micro = "t3.micro"
-    TWS-Junoon-small = "t3.small"
+    TWS-Junoon-automate-micro = "t3.micro"
+    TWS-Junoon-automate-small = "t3.small"
   })                                            # Create multiple instances
   ami                    = var.ec2_ami_id
   instance_type          = each.value
