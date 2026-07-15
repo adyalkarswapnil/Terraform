@@ -56,9 +56,12 @@ resource "aws_security_group" "my_security_group" {
 
 # EC2 Instance
 resource "aws_instance" "my_instance" {
-  count = 3
+  for_each = toset({
+    TWS-Junoon-micro = "t3.micro"
+    TWS-Junoon-small = "t3.small"
+  })                                            # Create multiple instances
   ami                    = var.ec2_ami_id
-  instance_type          = var.ec2_instance_type
+  instance_type          = each.value
   key_name               = aws_key_pair.My_key.key_name
   vpc_security_group_ids = [aws_security_group.my_security_group.id]
 
@@ -70,6 +73,6 @@ resource "aws_instance" "my_instance" {
   }
 
   tags = {
-    Name = "TWS-Junun-automate"
+    Name = each.key
   }
 }
