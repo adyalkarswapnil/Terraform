@@ -59,7 +59,11 @@ resource "aws_instance" "my_instance" {
   for_each = tomap({
     TWS-Junoon-automate-micro = "t3.micro"
     TWS-Junoon-automate-small = "t3.small"
-  })                                            # Create multiple instances
+  }) 
+  
+  #meta Argument
+  depends_on = [aws_security_group.my_security_group, aws_key_pair.My_key]
+                                                  # Create multiple instances
   ami                    = var.ec2_ami_id
   instance_type          = each.value
   key_name               = aws_key_pair.My_key.key_name
