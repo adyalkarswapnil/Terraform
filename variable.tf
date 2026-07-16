@@ -4,14 +4,19 @@ variable "ec2_instance_type" {
   default     = "t3.small"
 }
 
-variable "ec2_root_storage_size" {
+variable "ec2_default_root_storage_size" {
   description = "Root EBS volume size in GB"
   type        = number
-  default     = 25
+  default     = 10
 }
 
 variable "ec2_ami_id" {
   description = "Amazon Machine Image (AMI) ID"
   type        = string
   default     = "ami-01a00762f46d584a1"
+}
+
+variable "env" {
+  default = "dev"
+  type = string
 }
